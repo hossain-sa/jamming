@@ -1,11 +1,18 @@
 import TrackList from './TrackList';
 
 function Playlist(props) {
-	const {playListTracks, removeTrack} = props;
+	const {playListTracks, removeTrack, changeName} = props;
 
+	const handleNameChange = (event) => {
+		event.preventDefault();
+		changeName(event.target.value);
+	}
 	return (
 		<div className="Playlist">
+			<input onChange={handleNameChange} defaultValue={"New Playlist"} />
 			<TrackList tracks={playListTracks} removeTrack={removeTrack} />
+
+			<button onClick={handleNameChange}>Save Name</button>
 		</div>
 	)
 }

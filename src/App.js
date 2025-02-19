@@ -9,6 +9,9 @@ function App() {
   const [playList, setPlayList] = useState("New Playlist");
   const [playListTracks, setPlayListTracks] = useState([]);
 
+  const changeName = (newName) => {
+    setPlayList(newName);
+  }
 
 
   return (
@@ -20,7 +23,7 @@ function App() {
 
           <div className="playlist">
             <SearchResults searchResults={searchResults} addTrack={addTrack} />
-            <Playlist playList={playList} playListTracks={playListTracks} />
+            <Playlist playList={playList} playListTracks={playListTracks} changeName={changeName} />
           </div>
         </div>
       </div>
