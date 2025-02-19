@@ -7,7 +7,10 @@ import SearchResults from './components/SearchResults';
 function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [playList, setPlayList] = useState("New Playlist");
-  const [playListTracks, setPlayListTracks] = useState([]);
+  const [playListTracks, setPlayListTracks] = useState([
+    {id: 1, name: "Some song", artist: "some singer", "album": "some album"},
+    {id: 2, name: "Another song", artist: "Another singer", "album": "Another album"},
+  ]);
 
   const changeName = (newName) => {
     setPlayList(newName);
