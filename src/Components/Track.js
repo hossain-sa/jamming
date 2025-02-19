@@ -1,6 +1,6 @@
 
 function Track(props) {
-	const {track, addTract, removeTrack} = props;
+	const {track, addTrack, removeTrack} = props;
 	return (
 		<div className="track">
 			<div className="track-info">
