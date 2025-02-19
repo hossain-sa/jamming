@@ -24,6 +24,10 @@ function App() {
     return true;
   }
 
+  const removeTrack = () => {
+    return true;
+  }
+
 
   return (
     <div>
