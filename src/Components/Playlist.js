@@ -1,4 +1,4 @@
-import TrackList from './TrackList';
+import TrackList from './Tracklist';
 
 function Playlist(props) {
 	const {playListTracks, removeTrack, changeName} = props;

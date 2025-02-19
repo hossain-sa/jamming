@@ -2,6 +2,12 @@ import Track from './Track';
 
 function TrackList(props) {
 	const { tracks } = props;
+	const addTrack = (track) => {
+		props.addTrack(track);
+	}
+	const removeTrack = (track) => {
+		props.removeTrack(track);
+	}
 	return (
 		<div className="track-list">
 			{

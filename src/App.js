@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import Playlist from './components/Playlist';
-import SearchBar from './components/SearchBar';
-import SearchResults from './components/SearchResults';
+import Playlist from './Components/Playlist';
+import SearchBar from './Components/SearchBar';
+import SearchResults from './Components/SearchResults';
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);
@@ -14,6 +14,14 @@ function App() {
 
   const changeName = (newName) => {
     setPlayList(newName);
+  }
+
+  const searchPlayList = () => {
+    return true;
+  }
+
+  const addTrack = () => {
+    return true;
   }
 
 
