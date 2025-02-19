@@ -1,6 +1,17 @@
 
 function Track(props) {
 	const {track, addTrack, removeTrack} = props;
+
+	const handleAdd = (event) => {
+		event.preventDefault();
+		addTrack(track);
+	}
+
+	const handleRemove = (event) => {
+		event.preventDefault();
+		removeTrack(track);
+	}
+
 	return (
 		<div className="track">
 			<div className="track-info">
@@ -8,10 +19,10 @@ function Track(props) {
 				<p>{track.artist} | {track.album}</p>
 			</div>
 			<div className="track-action">
-				<button className="remove-tract" onClick={removeTrack}>
+				<button className="remove-tract" onClick={handleRemove}>
 					-
 				</button>
-				<button className="add-track" onClick={addTrack}>
+				<button className="add-track" onClick={handleAdd}>
 					+
 				</button>
 			</div>
