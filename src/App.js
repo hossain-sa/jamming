@@ -4,6 +4,7 @@ import Playlist from './Components/Playlist';
 import SearchBar from './Components/SearchBar';
 import SearchResults from './Components/SearchResults';
 import Spotify from './api/Spotify';
+import track from './Components/Track';
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);
@@ -14,12 +15,12 @@ function App() {
   ]);
 
   const savePlayList = useCallback(() => {
-    const trackUris = playlistTracks.map((track) => track.uri);
+    const trackUris = playListTracks.map((track) => track.uri);
     Spotify.savePlayList(playList, trackUris).then(() => {
       setPlayList("New Playlist");
       setPlayListTracks([]);
     })
-  }, [playList, playlistTracks]);
+  }, [playList, playListTracks]);
 
   const changePlayListName = (newName) => {
     setPlayList(newName);
@@ -29,13 +30,15 @@ function App() {
     Spotify.search(searchTerm).then(setSearchResults);
   }, []);
 
-  const addTrack = () => {
-    return true;
-  }
+  const addTrack = useCallback((track) => {
+    if(playListTracks.some((savedTrack) => savedTrack.id === track.id)) return;
 
-  const removeTrack = () => {
-    return true;
-  }
+    setPlayListTracks((previousTracks) => [...previousTracks, track]);
+  }, [playListTracks]);
+
+  const removeTrack = useCallback(() => {
+    setPlayListTracks((previousTracks) => previousTracks.filter(currentTrack => currentTrack.id !== track.id));
+  }, []);
 
 
   return (
@@ -47,7 +50,7 @@ function App() {
 
           <div className="playlist">
             <SearchResults searchResults={searchResults} addTrack={addTrack} />
-            <Playlist playList={playList} playListTracks={playListTracks} changeName={changeName} />
+            <Playlist playList={playList} playListTracks={playListTracks} savePlayList={savePlayList} changeName={changePlayListName} />
           </div>
         </div>
       </div>
