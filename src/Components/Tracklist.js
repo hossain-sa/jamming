@@ -9,7 +9,7 @@ function TrackList(props) {
 		props.removeTrack(track);
 	}
 	return (
-		<div className="track-list">
+		<div className="TrackList">
 			{
 				tracks.map((track) => (
 					<Track track={track} key={track.id} addTrack={addTrack} removeTrack={removeTrack} />

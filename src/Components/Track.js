@@ -13,12 +13,12 @@ function Track(props) {
 	}
 
 	return (
-		<div className="track">
-			<div className="track-info">
+		<div className="Track">
+			<div className="Track-information">
 				<h3>{track.name}</h3>
 				<p>{track.artist} | {track.album}</p>
 			</div>
-			<div className="track-action">
+			<div className="Track-action">
 				<button className="remove-tract" onClick={handleRemove}>
 					-
 				</button>

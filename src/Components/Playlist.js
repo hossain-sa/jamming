@@ -12,7 +12,7 @@ function Playlist(props) {
 			<input onChange={handleNameChange} defaultValue={"New Playlist"} />
 			<TrackList tracks={playListTracks} removeTrack={removeTrack} />
 
-			<button onClick={handleNameChange}>Save Name</button>
+			<button className="Playlist-save" onClick={handleNameChange}>Save Name</button>
 		</div>
 	)
 }
