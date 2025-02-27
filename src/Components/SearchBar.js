@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 function SearchBar(props) {
 	const {searchPlayList} = props;
 	const [searchTerm, setSearchTerm] = useState('');
 
-	const handleTextChange = (event) => {
-		event.preventDefault();
+	const handleTextChange = useCallback((event) => {
 		setSearchTerm(event.target.value);
-	}
+	}, []);
 
-	const handleSearch = () => {
+	const handleSearch = useCallback(() => {
 		searchPlayList(searchTerm);
-	}
+	}, [searchPlayList, searchTerm]);
 
 	return (
 		<div className="SearchBar">
