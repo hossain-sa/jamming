@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import Playlist from './Components/Playlist';
 import SearchBar from './Components/SearchBar';
 import SearchResults from './Components/SearchResults';
+import Spotify from './api/Spotify';
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);
@@ -12,13 +13,21 @@ function App() {
     {id: 2, name: "Another song", artist: "Another singer", "album": "Another album"},
   ]);
 
-  const changeName = (newName) => {
+  const savePlayList = useCallback(() => {
+    const trackUris = playlistTracks.map((track) => track.uri);
+    Spotify.savePlayList(playList, trackUris).then(() => {
+      setPlayList("New Playlist");
+      setPlayListTracks([]);
+    })
+  }, [playList, playlistTracks]);
+
+  const changePlayListName = (newName) => {
     setPlayList(newName);
   }
 
-  const searchPlayList = () => {
-    return true;
-  }
+  const searchPlayList = useCallback((searchTerm) => {
+    Spotify.search(searchTerm).then(setSearchResults);
+  }, []);
 
   const addTrack = () => {
     return true;
