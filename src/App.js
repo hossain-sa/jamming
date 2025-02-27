@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 
 import Playlist from './Components/Playlist';
 import SearchBar from './Components/SearchBar';
@@ -10,6 +10,10 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [playList, setPlayList] = useState("New Playlist");
   const [playListTracks, setPlayListTracks] = useState([]);
+
+  useEffect(() => {
+    Spotify.getAccessToken();
+  }, []);
 
   const savePlayList = useCallback(() => {
     const trackUris = playListTracks.map((track) => track.uri);
@@ -29,7 +33,6 @@ function App() {
 
   const addTrack = useCallback((track) => {
     if(playListTracks.some((savedTrack) => savedTrack.id === track.id)) return;
-    console.log(track);
     setPlayListTracks((previousTracks) => [...previousTracks, track]);
   }, [playListTracks]);
 
