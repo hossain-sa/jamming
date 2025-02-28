@@ -69,8 +69,15 @@ h2 {
     box-shadow: 0 4px 2px 2px #000000;
 }
 
-.Playlist input {
+.Playlist .single-line {
+    display: flex;
+    gap: 1rem;
     width: 100%;
+}
+
+.Playlist input {
+    display: flex;
+    flex: 1;
     border: 0;
     outline: 0;
     background: transparent;
@@ -82,9 +89,9 @@ h2 {
 
 .Playlist-save {
     cursor: pointer;
-    width: 10rem;
-    padding: .77rem 0;
-    border-radius: 54px;
+    /*width: 10rem;*/
+    padding: .77rem .6rem;
+    border-radius: 10%;
     border-width: 0px;
     margin-top: 1.27rem;
     background-color: #6c41ec;
@@ -112,20 +119,28 @@ h2 {
 
 .SearchBar {
     display: flex;
-    flex-direction: column;
+    /*flex-direction: column;*/
+    width: 100%;
+    justify-content: center;
     align-items: center;
-    padding-top: 6.94rem;
-    margin-bottom: 6.33rem;
+    gap: 1rem;
+    /*padding-top: 6.94rem;*/
+    padding-top: 2.33rem;
+    /*margin-bottom: 6.33rem;*/
+    margin-bottom: 2.33rem;
 }
 
 .SearchBar input {
-    width: 287px;
+    display: flex;
+    flex: 1;
+    /*width: 287px;*/
     padding: .88rem 0;
     border: 1px solid #fff;
     border-radius: 3px;
-    margin-bottom: 2.22rem;
+    /*margin-bottom: 2.22rem;*/
     color: #010c3f;
-    text-align: center;
+    /*text-align: center;*/
+    padding-left: 10px;
     font-size: 1rem;
 }
 
@@ -134,13 +149,14 @@ h2 {
 }
 
 .SearchButton {
+    display: flex;
     cursor: pointer;
-    width: 8.11rem;
-    padding: .77rem 0;
-    border-radius: 54px;
+    /*width: 8.11rem;*/
+    padding: 0.9rem;
+    border-radius: 10%;
     background-color: #010c3f;
     text-align: center;
-    font-size: .833rem;
+    font-size: 1rem;
     transition: background-color .25s;
     border: 0px;
     color: #fff;
@@ -175,6 +191,7 @@ h2 {
 .Track {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     border-bottom: 1px solid rgba(256, 256, 256, 0.8);
 }
 

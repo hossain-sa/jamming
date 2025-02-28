@@ -9,10 +9,11 @@ function Playlist(props) {
 	},[changeName]);
 	return (
 		<div className="Playlist">
-			<input onChange={handleNameChange} defaultValue={"New Playlist"} />
+			<div className="single-line">
+				<input onChange={handleNameChange} defaultValue={"New Playlist"} />
+				<button className="Playlist-save" onClick={handleNameChange}>Save</button>
+			</div>
 			<TrackList tracks={playListTracks} isRemoval={true} removeTrack={removeTrack} />
-
-			<button className="Playlist-save" onClick={handleNameChange}>Save Name</button>
 		</div>
 	)
 }
