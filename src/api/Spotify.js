@@ -1,5 +1,5 @@
 const clientId = 'e9548b8ada394c12a600bf2dd448ea55'; // Insert client ID here.
-const redirectUri = 'https://localhost/'; // Have to add this to your accepted Spotify redirect URIs on the Spotify API.
+const redirectUri = 'https://jamming-deployed.netlify.app/'; // Have to add this to your accepted Spotify redirect URIs on the Spotify API.
 let accessToken;
 
 const Spotify = {
